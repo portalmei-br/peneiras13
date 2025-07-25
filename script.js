@@ -2,7 +2,7 @@
 const peneirasData = [
     {
         id: 1,
-        titulo: "Peneira Sub-15 e Sub-17",
+        titulo: "Sub-15 e Sub-17",
         clube: "Santos FC",
         endereco: "Vila Belmiro, Santos, SP",
         data: "2024-08-15",
@@ -21,7 +21,7 @@ const peneirasData = [
     },
     {
         id: 2,
-        titulo: "Peneira Categoria de Base",
+        titulo: "Peneira Categoria",
         clube: "São Paulo FC",
         endereco: "CT Barra Funda, São Paulo, SP",
         data: "2024-08-20",
