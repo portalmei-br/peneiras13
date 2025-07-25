@@ -47,13 +47,13 @@
     --border-light: #F1F3F4;
     --border-dark: #DADCE0;
     
-    /* Sombras */
-    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
-    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08);
-    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.12);
-    --shadow-2xl: 0 24px 48px rgba(0, 0, 0, 0.15);
+    /* Sombras refinadas */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.08);
+    --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.10);
+    --shadow-2xl: 0 24px 48px rgba(0, 0, 0, 0.12);
     
     /* Raios de borda */
     --radius-xs: 4px;
@@ -634,75 +634,78 @@ body {
 }
 
 /* ========================================= */
-/* GRID DE RESULTADOS MELHORADO - ALTURA UNIFORME */
+/* GRID DE RESULTADOS - ALTURA UNIFORME E CONTRASTE SUTIL */
 /* ========================================= */
 
-/* Grid de resultados com 2 colunas */
 .results-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-xl);
-    align-items: stretch; /* Força todos os cards a terem a mesma altura */
+    gap: var(--space-lg);
+    align-items: stretch;
 }
 
 /* ========================================= */
-/* CARDS COM ALTURA UNIFORME E MELHOR CONTRASTE */
+/* CARDS REFINADOS - CONTRASTE SUTIL E ELEGANTE */
 /* ========================================= */
 
 .result-card,
 .peneira-card {
     background: var(--bg-primary);
-    border-radius: var(--radius-xl);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
     transition: all var(--transition-normal);
-    border: 2px solid var(--border-light);
+    border: 1px solid var(--border-light);
     position: relative;
     overflow: hidden;
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* ALTURA UNIFORME: Força todos os cards a terem a mesma altura */
     min-height: 420px;
 }
 
-/* Alternância de cores para melhor contraste */
-.peneira-card:nth-child(odd) {
-    background: var(--bg-primary);
-    border-color: rgba(27, 94, 32, 0.15);
-}
-
+/* Contraste sutil através de backgrounds alternados */
 .peneira-card:nth-child(even) {
     background: #FAFBFC;
-    border-color: rgba(255, 107, 53, 0.15);
+    border-color: rgba(0, 0, 0, 0.06);
 }
 
+/* Barra lateral discreta para identificação */
 .peneira-card::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 4px;
+    width: 3px;
     height: 100%;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    background: rgba(27, 94, 32, 0.3);
+    transition: all var(--transition-normal);
 }
 
-/* Alternância da barra lateral */
 .peneira-card:nth-child(even)::before {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+    background: rgba(255, 107, 53, 0.3);
 }
 
 .peneira-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-    border-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(27, 94, 32, 0.2);
 }
 
 .peneira-card:nth-child(even):hover {
-    border-color: var(--secondary-color);
+    border-color: rgba(255, 107, 53, 0.2);
+}
+
+.peneira-card:hover::before {
+    width: 4px;
+    background: rgba(27, 94, 32, 0.6);
+}
+
+.peneira-card:nth-child(even):hover::before {
+    background: rgba(255, 107, 53, 0.6);
 }
 
 /* ========================================= */
-/* STATUS DO CARD - MELHOR CONTRASTE */
+/* STATUS DO CARD - CONTRASTE REFINADO */
 /* ========================================= */
 
 .card-status {
@@ -710,32 +713,31 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: var(--space-md) var(--space-lg);
-    border-bottom: 2px solid var(--border-light);
-    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-light);
+    background: rgba(248, 249, 250, 0.5);
     flex-shrink: 0;
 }
 
 .card-status.aberta {
-    background: linear-gradient(135deg, rgba(76, 175, 80, 0.08) 0%, rgba(46, 125, 50, 0.08) 100%);
-    border-bottom-color: rgba(76, 175, 80, 0.3);
+    background: rgba(76, 175, 80, 0.03);
+    border-bottom-color: rgba(76, 175, 80, 0.15);
 }
 
 .card-status.encerrada {
-    background: linear-gradient(135deg, rgba(158, 158, 158, 0.08) 0%, rgba(117, 117, 117, 0.08) 100%);
-    border-bottom-color: rgba(158, 158, 158, 0.3);
+    background: rgba(158, 158, 158, 0.03);
+    border-bottom-color: rgba(158, 158, 158, 0.15);
 }
 
-/* Alternância para cards pares */
 .peneira-card:nth-child(even) .card-status.aberta {
-    background: linear-gradient(135deg, rgba(255, 107, 53, 0.08) 0%, rgba(255, 193, 7, 0.08) 100%);
-    border-bottom-color: rgba(255, 107, 53, 0.3);
+    background: rgba(255, 107, 53, 0.03);
+    border-bottom-color: rgba(255, 107, 53, 0.15);
 }
 
 .status-text {
     font-size: var(--font-size-sm);
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.8px;
+    letter-spacing: 0.5px;
 }
 
 .card-status.aberta .status-text {
@@ -752,16 +754,16 @@ body {
 
 .distance {
     font-size: var(--font-size-sm);
-    font-weight: 700;
+    font-weight: 600;
     color: var(--text-primary);
-    background: rgba(255, 193, 7, 0.15);
+    background: rgba(255, 193, 7, 0.08);
     padding: var(--space-xs) var(--space-md);
     border-radius: var(--radius-full);
-    border: 1px solid rgba(255, 193, 7, 0.3);
+    border: 1px solid rgba(255, 193, 7, 0.2);
 }
 
 /* ========================================= */
-/* CONTEÚDO PRINCIPAL - LAYOUT FLEXÍVEL */
+/* CONTEÚDO PRINCIPAL - LAYOUT HARMONIOSO */
 /* ========================================= */
 
 .card-main {
@@ -774,7 +776,7 @@ body {
 
 .peneira-title {
     font-size: var(--font-size-xl);
-    font-weight: 800;
+    font-weight: 700;
     color: var(--text-primary);
     line-height: var(--leading-snug);
     margin-bottom: var(--space-xs);
@@ -782,7 +784,7 @@ body {
 
 .peneira-club {
     font-size: var(--font-size-base);
-    font-weight: 700;
+    font-weight: 600;
     color: var(--primary-color);
     margin-bottom: var(--space-lg);
 }
@@ -792,7 +794,7 @@ body {
 }
 
 /* ========================================= */
-/* INFORMAÇÕES DA PENEIRA - ESTRUTURA UNIFORME */
+/* INFORMAÇÕES DA PENEIRA - HIERARQUIA CLARA */
 /* ========================================= */
 
 .peneira-info {
@@ -804,12 +806,12 @@ body {
 
 .info-primary {
     padding-bottom: var(--space-md);
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .data-hora {
     font-size: var(--font-size-lg);
-    font-weight: 700;
+    font-weight: 600;
     color: var(--text-primary);
     display: block;
 }
@@ -832,7 +834,7 @@ body {
 }
 
 .categoria {
-    font-weight: 700;
+    font-weight: 600;
     color: var(--primary-color);
 }
 
@@ -841,7 +843,7 @@ body {
 }
 
 /* ========================================= */
-/* INFORMAÇÕES DE VAGAS - DESIGN CONSISTENTE */
+/* INFORMAÇÕES DE VAGAS - DESIGN DISCRETO */
 /* ========================================= */
 
 .vagas-info {
@@ -850,50 +852,50 @@ body {
     align-items: center;
     padding: var(--space-md);
     border-radius: var(--radius-md);
-    border: 2px solid;
+    border: 1px solid;
     margin-top: auto;
 }
 
 .vagas-info.disponivel {
-    background: rgba(76, 175, 80, 0.08);
-    border-color: rgba(76, 175, 80, 0.3);
+    background: rgba(76, 175, 80, 0.04);
+    border-color: rgba(76, 175, 80, 0.2);
     color: var(--primary-color);
 }
 
 .vagas-info.limitado {
-    background: rgba(255, 152, 0, 0.08);
-    border-color: rgba(255, 152, 0, 0.3);
+    background: rgba(255, 152, 0, 0.04);
+    border-color: rgba(255, 152, 0, 0.2);
     color: #f57c00;
 }
 
 .vagas-info.urgente {
-    background: rgba(244, 67, 54, 0.08);
-    border-color: rgba(244, 67, 54, 0.3);
+    background: rgba(244, 67, 54, 0.04);
+    border-color: rgba(244, 67, 54, 0.2);
     color: #d32f2f;
 }
 
 .vagas-info.encerrada {
-    background: rgba(158, 158, 158, 0.08);
-    border-color: rgba(158, 158, 158, 0.3);
+    background: rgba(158, 158, 158, 0.04);
+    border-color: rgba(158, 158, 158, 0.2);
     color: var(--text-secondary);
 }
 
 .vagas-text {
     font-size: var(--font-size-sm);
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .vagas-count {
     font-size: var(--font-size-sm);
-    font-weight: 800;
-    background: rgba(255, 255, 255, 0.9);
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.8);
     padding: var(--space-xs) var(--space-sm);
     border-radius: var(--radius-full);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 /* ========================================= */
-/* INFORMAÇÕES DE PRAZO - DESIGN CONSISTENTE */
+/* INFORMAÇÕES DE PRAZO - DESIGN HARMONIOSO */
 /* ========================================= */
 
 .prazo-info {
@@ -901,48 +903,48 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: var(--space-md);
-    background: rgba(33, 150, 243, 0.08);
-    border: 2px solid rgba(33, 150, 243, 0.3);
+    background: rgba(33, 150, 243, 0.04);
+    border: 1px solid rgba(33, 150, 243, 0.2);
     border-radius: var(--radius-md);
 }
 
 .prazo-info.encerrada {
-    background: rgba(158, 158, 158, 0.08);
-    border-color: rgba(158, 158, 158, 0.3);
+    background: rgba(158, 158, 158, 0.04);
+    border-color: rgba(158, 158, 158, 0.2);
 }
 
 .prazo-text {
     font-size: var(--font-size-sm);
-    font-weight: 600;
+    font-weight: 500;
     color: var(--text-secondary);
 }
 
 .prazo-restante {
     font-size: var(--font-size-sm);
-    font-weight: 800;
+    font-weight: 700;
     color: #1976D2;
-    background: rgba(33, 150, 243, 0.15);
+    background: rgba(33, 150, 243, 0.08);
     padding: var(--space-xs) var(--space-sm);
     border-radius: var(--radius-full);
-    border: 1px solid rgba(33, 150, 243, 0.3);
+    border: 1px solid rgba(33, 150, 243, 0.2);
 }
 
 .prazo-info.encerrada .prazo-text,
 .prazo-info.encerrada .prazo-restante {
     color: var(--text-secondary);
-    background: rgba(158, 158, 158, 0.15);
-    border-color: rgba(158, 158, 158, 0.3);
+    background: rgba(158, 158, 158, 0.08);
+    border-color: rgba(158, 158, 158, 0.2);
 }
 
 /* ========================================= */
-/* AÇÕES DO CARD - BOTÃO ÚNICO */
+/* AÇÕES DO CARD - BOTÃO ELEGANTE */
 /* ========================================= */
 
 .card-actions {
     display: flex;
     padding: var(--space-lg);
-    border-top: 2px solid var(--border-light);
-    background: rgba(248, 249, 250, 0.8);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    background: rgba(248, 249, 250, 0.3);
     flex-shrink: 0;
 }
 
@@ -954,51 +956,49 @@ body {
     border-radius: var(--radius-md);
     padding: var(--space-md) var(--space-lg);
     font-size: var(--font-size-sm);
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
     transition: all var(--transition-normal);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: var(--space-sm);
-    box-shadow: 0 4px 12px rgba(27, 94, 32, 0.2);
+    box-shadow: var(--shadow-sm);
 }
 
 .peneira-card:nth-child(even) .btn-primary {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
-    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 100%);
 }
 
 .btn-primary:hover {
     background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-lighter) 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(27, 94, 32, 0.3);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
 }
 
 .peneira-card:nth-child(even) .btn-primary:hover {
-    background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-light) 100%);
-    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+    background: linear-gradient(135deg, var(--secondary-light) 0%, var(--accent-color) 100%);
 }
 
 .btn-disabled {
     flex: 1;
-    background: #E0E0E0;
+    background: #E8E8E8;
     color: var(--text-secondary);
     border: none;
     border-radius: var(--radius-md);
     padding: var(--space-md) var(--space-lg);
     font-size: var(--font-size-sm);
-    font-weight: 700;
+    font-weight: 600;
     cursor: not-allowed;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: var(--space-sm);
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 /* ========================================= */
-/* RESPONSIVIDADE MOBILE - ALTURA UNIFORME */
+/* RESPONSIVIDADE REFINADA */
 /* ========================================= */
 
 @media (max-width: 1024px) {
@@ -1010,10 +1010,9 @@ body {
         grid-template-columns: 1fr;
     }
     
-    /* Manter 2 colunas em tablets */
     .results-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-lg);
+        gap: var(--space-md);
     }
     
     .peneira-card {
@@ -1078,18 +1077,15 @@ body {
         justify-content: center;
     }
     
-    /* MOBILE: Manter 2 colunas com altura uniforme */
     .results-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-md);
+        gap: var(--space-sm);
     }
     
-    /* ALTURA UNIFORME MOBILE: Ajustar altura mínima para mobile */
     .peneira-card {
         min-height: 360px;
     }
     
-    /* Ajustar cards para mobile */
     .card-status {
         padding: var(--space-sm) var(--space-md);
         flex-direction: column;
@@ -1099,7 +1095,7 @@ body {
     
     .distance {
         align-self: flex-end;
-        font-size: 0.7rem;
+        font-size: 0.75rem;
         padding: 2px var(--space-xs);
     }
     
@@ -1186,13 +1182,12 @@ body {
         font-size: var(--font-size-3xl);
     }
     
-    /* MOBILE PEQUENO: Altura uniforme ainda menor */
     .peneira-card {
         min-height: 340px;
     }
     
     .results-grid {
-        gap: var(--space-sm);
+        gap: 0.75rem;
     }
     
     .card-status {
@@ -1201,7 +1196,7 @@ body {
     
     .status-text {
         font-size: 0.7rem;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.3px;
     }
     
     .distance {
@@ -1267,31 +1262,31 @@ body {
 }
 
 /* ========================================= */
-/* MELHORIAS ADICIONAIS DE CONTRASTE */
+/* MELHORIAS SUTIS DE CONTRASTE */
 /* ========================================= */
 
-/* Sombras alternadas para melhor separação */
+/* Sombras muito sutis para separação */
 .peneira-card:nth-child(odd) {
-    box-shadow: 0 2px 8px rgba(27, 94, 32, 0.08);
+    box-shadow: 0 1px 3px rgba(27, 94, 32, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 .peneira-card:nth-child(even) {
-    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.08);
+    box-shadow: 0 1px 3px rgba(255, 107, 53, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 .peneira-card:nth-child(odd):hover {
-    box-shadow: 0 12px 32px rgba(27, 94, 32, 0.15);
+    box-shadow: 0 4px 12px rgba(27, 94, 32, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 .peneira-card:nth-child(even):hover {
-    box-shadow: 0 12px 32px rgba(255, 107, 53, 0.15);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-/* Animações sutis para entrada */
+/* Animações muito suaves */
 @keyframes gentle-fade {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(10px);
     }
     to {
         opacity: 1;
@@ -1300,17 +1295,17 @@ body {
 }
 
 .peneira-card {
-    animation: gentle-fade 0.5s ease-out;
+    animation: gentle-fade 0.4s ease-out;
 }
 
-/* Estados de foco para acessibilidade */
+/* Estados de foco discretos */
 .peneira-card:focus-within {
-    outline: 3px solid var(--primary-color);
+    outline: 2px solid rgba(27, 94, 32, 0.3);
     outline-offset: 2px;
 }
 
 .peneira-card:nth-child(even):focus-within {
-    outline-color: var(--secondary-color);
+    outline-color: rgba(255, 107, 53, 0.3);
 }
 
 /* ========================================= */
@@ -1894,7 +1889,7 @@ body {
     color: var(--text-tertiary);
 }
 
-/* Animações Sutis */
+/* Transições Suaves */
 .card-status,
 .card-main,
 .vagas-info,
@@ -1905,19 +1900,11 @@ body {
 
 /* Estados de Hover Minimalistas */
 .peneira-card:hover .card-status.aberta {
-    background: linear-gradient(135deg, rgba(76, 175, 80, 0.12) 0%, rgba(46, 125, 50, 0.12) 100%);
+    background: rgba(76, 175, 80, 0.05);
 }
 
 .peneira-card:nth-child(even):hover .card-status.aberta {
-    background: linear-gradient(135deg, rgba(255, 107, 53, 0.12) 0%, rgba(255, 193, 7, 0.12) 100%);
-}
-
-.peneira-card:hover .vagas-info {
-    transform: translateY(-1px);
-}
-
-.peneira-card:hover .prazo-info {
-    transform: translateY(-1px);
+    background: rgba(255, 107, 53, 0.05);
 }
 
 /* Melhorias de Acessibilidade */
@@ -1947,18 +1934,18 @@ body {
 /* Melhorias para Alto Contraste */
 @media (prefers-contrast: high) {
     .peneira-card {
-        border-width: 3px;
+        border-width: 2px;
     }
     
     .vagas-info,
     .prazo-info {
-        border-width: 3px;
+        border-width: 2px;
     }
     
     .peneira-title,
     .status-text,
     .vagas-text {
-        font-weight: 800;
+        font-weight: 700;
     }
 }
 
@@ -1979,23 +1966,6 @@ body {
     .btn-primary:hover {
         transform: none;
     }
-}
-
-/* Micro-interações Sutis */
-.status-text:hover {
-    transform: scale(1.02);
-    transition: transform 0.2s ease-out;
-}
-
-.distance:hover {
-    transform: scale(1.05);
-    transition: transform 0.2s ease-out;
-}
-
-.vagas-count:hover,
-.prazo-restante:hover {
-    transform: scale(1.05);
-    transition: transform 0.2s ease-out;
 }
 
 /* Melhorias de Performance */
