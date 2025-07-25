@@ -13,24 +13,26 @@
 }
 
 :root {
-    /* Cores principais premium */
+    /* Cores principais premium - Verde mantido */
     --primary-color: #1B5E20;
     --primary-light: #2E7D32;
     --primary-lighter: #4CAF50;
     --primary-dark: #0D3F0F;
     --primary-ultra-light: #E8F5E8;
     
-    /* Cores secundárias premium */
-    --secondary-color: #FF6B35;
-    --secondary-light: #FF8A65;
-    --secondary-dark: #E64A19;
-    --secondary-ultra-light: #FFF3F0;
+    /* Cores secundárias profissionais - Azul-acinzentado elegante */
+    --secondary-color: #37474F;        /* Azul-acinzentado principal */
+    --secondary-light: #546E7A;        /* Azul-acinzentado claro */
+    --secondary-lighter: #78909C;      /* Azul-acinzentado mais claro */
+    --secondary-dark: #263238;         /* Azul-acinzentado escuro */
+    --secondary-ultra-light: #F5F7FA;  /* Azul-acinzentado ultra claro */
     
-    /* Cores de apoio premium */
-    --accent-color: #FFC107;
-    --accent-light: #FFD54F;
-    --accent-dark: #FF8F00;
-    --accent-ultra-light: #FFFBF0;
+    /* Cores de apoio premium - Azul corporativo */
+    --accent-color: #1976D2;           /* Azul corporativo */
+    --accent-light: #42A5F5;          /* Azul corporativo claro */
+    --accent-lighter: #64B5F6;        /* Azul corporativo mais claro */
+    --accent-dark: #1565C0;           /* Azul corporativo escuro */
+    --accent-ultra-light: #E3F2FD;    /* Azul corporativo ultra claro */
     
     /* Cores neutras premium */
     --text-primary: #1A1A1A;
@@ -66,7 +68,7 @@
     
     /* Sombras coloridas premium */
     --shadow-green: 0 8px 25px rgba(27, 94, 32, 0.08), 0 3px 10px rgba(27, 94, 32, 0.04);
-    --shadow-orange: 0 8px 25px rgba(255, 107, 53, 0.08), 0 3px 10px rgba(255, 107, 53, 0.04);
+    --shadow-blue: 0 8px 25px rgba(55, 71, 79, 0.08), 0 3px 10px rgba(55, 71, 79, 0.04);
     
     /* Raios de borda premium */
     --radius-xs: 3px;
@@ -151,7 +153,7 @@
     --z-popover: 1060;
     --z-tooltip: 1070;
     
-    /* Gradientes premium */
+    /* Gradientes premium profissionais */
     --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
     --gradient-secondary: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 100%);
     --gradient-accent: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-light) 100%);
@@ -572,7 +574,7 @@ body {
 }
 
 /* ========================================= */
-/* CARDS MOBILE OTIMIZADOS - DESIGN COMPACTO */
+/* CARDS MOBILE OTIMIZADOS - PALETA PROFISSIONAL */
 /* ========================================= */
 
 .result-card,
@@ -591,7 +593,7 @@ body {
     backdrop-filter: blur(10px);
 }
 
-/* Gradiente sutil de fundo para alternância premium */
+/* Gradiente sutil de fundo para alternância premium - PALETA PROFISSIONAL */
 .peneira-card:nth-child(odd) {
     background: linear-gradient(135deg, var(--bg-primary) 0%, var(--primary-ultra-light) 100%);
     border-color: rgba(27, 94, 32, 0.08);
@@ -599,10 +601,10 @@ body {
 
 .peneira-card:nth-child(even) {
     background: linear-gradient(135deg, var(--bg-primary) 0%, var(--secondary-ultra-light) 100%);
-    border-color: rgba(255, 107, 53, 0.08);
+    border-color: rgba(55, 71, 79, 0.08);
 }
 
-/* Barra lateral premium com gradiente */
+/* Barra lateral premium com gradiente - PALETA PROFISSIONAL */
 .peneira-card::before {
     content: '';
     position: absolute;
@@ -619,7 +621,7 @@ body {
     background: linear-gradient(180deg, var(--secondary-color) 0%, var(--secondary-light) 100%);
 }
 
-/* Elemento decorativo superior */
+/* Elemento decorativo superior - PALETA PROFISSIONAL */
 .peneira-card::after {
     content: '';
     position: absolute;
@@ -633,10 +635,10 @@ body {
 }
 
 .peneira-card:nth-child(even)::after {
-    background: radial-gradient(circle, rgba(255, 107, 53, 0.05) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(55, 71, 79, 0.05) 0%, transparent 70%);
 }
 
-/* Estados de hover premium */
+/* Estados de hover premium - PALETA PROFISSIONAL */
 .peneira-card:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: var(--shadow-premium);
@@ -644,8 +646,8 @@ body {
 }
 
 .peneira-card:nth-child(even):hover {
-    border-color: rgba(255, 107, 53, 0.15);
-    box-shadow: var(--shadow-orange);
+    border-color: rgba(55, 71, 79, 0.15);
+    box-shadow: var(--shadow-blue);
 }
 
 .peneira-card:hover::before {
@@ -660,7 +662,7 @@ body {
 }
 
 /* ========================================= */
-/* STATUS DO CARD - MOBILE COMPACTO */
+/* STATUS DO CARD - PALETA PROFISSIONAL */
 /* ========================================= */
 
 .card-status {
@@ -686,8 +688,8 @@ body {
 }
 
 .peneira-card:nth-child(even) .card-status.aberta {
-    background: linear-gradient(135deg, rgba(255, 107, 53, 0.06) 0%, rgba(255, 138, 101, 0.03) 100%);
-    border-bottom-color: rgba(255, 107, 53, 0.12);
+    background: linear-gradient(135deg, rgba(55, 71, 79, 0.06) 0%, rgba(84, 110, 122, 0.03) 100%);
+    border-bottom-color: rgba(55, 71, 79, 0.12);
 }
 
 .status-text {
@@ -705,7 +707,7 @@ body {
 
 .peneira-card:nth-child(even) .card-status.aberta .status-text {
     color: var(--secondary-color);
-    text-shadow: 0 1px 2px rgba(255, 107, 53, 0.1);
+    text-shadow: 0 1px 2px rgba(55, 71, 79, 0.1);
 }
 
 .card-status.encerrada .status-text {
@@ -716,16 +718,16 @@ body {
     font-size: var(--font-size-sm);
     font-weight: 700;
     color: var(--text-primary);
-    background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 213, 79, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(25, 118, 210, 0.1) 0%, rgba(66, 165, 245, 0.05) 100%);
     padding: var(--space-xs) var(--space-md);
     border-radius: var(--radius-full);
-    border: 1px solid rgba(255, 193, 7, 0.2);
+    border: 1px solid rgba(25, 118, 210, 0.2);
     backdrop-filter: blur(5px);
     box-shadow: var(--shadow-xs);
 }
 
 /* ========================================= */
-/* CONTEÚDO PRINCIPAL - MOBILE COMPACTO */
+/* CONTEÚDO PRINCIPAL - PALETA PROFISSIONAL */
 /* ========================================= */
 
 .card-main {
@@ -762,7 +764,7 @@ body {
 }
 
 /* ========================================= */
-/* INFORMAÇÕES DA PENEIRA - MOBILE OTIMIZADO */
+/* INFORMAÇÕES DA PENEIRA - PALETA PROFISSIONAL */
 /* ========================================= */
 
 .peneira-info {
@@ -836,7 +838,7 @@ body {
 }
 
 /* ========================================= */
-/* INFORMAÇÕES DE VAGAS - MOBILE COMPACTO */
+/* INFORMAÇÕES DE VAGAS - PALETA PROFISSIONAL */
 /* ========================================= */
 
 .vagas-info {
@@ -872,9 +874,9 @@ body {
 }
 
 .vagas-info.limitado {
-    background: linear-gradient(135deg, rgba(255, 152, 0, 0.08) 0%, rgba(255, 193, 7, 0.04) 100%);
-    border-color: rgba(255, 152, 0, 0.2);
-    color: #f57c00;
+    background: linear-gradient(135deg, rgba(25, 118, 210, 0.08) 0%, rgba(66, 165, 245, 0.04) 100%);
+    border-color: rgba(25, 118, 210, 0.2);
+    color: var(--accent-color);
     box-shadow: var(--shadow-xs);
 }
 
@@ -912,7 +914,7 @@ body {
 }
 
 /* ========================================= */
-/* INFORMAÇÕES DE PRAZO - MOBILE COMPACTO */
+/* INFORMAÇÕES DE PRAZO - PALETA PROFISSIONAL */
 /* ========================================= */
 
 .prazo-info {
@@ -920,8 +922,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: var(--space-lg);
-    background: linear-gradient(135deg, rgba(33, 150, 243, 0.08) 0%, rgba(30, 136, 229, 0.04) 100%);
-    border: 1px solid rgba(33, 150, 243, 0.2);
+    background: linear-gradient(135deg, rgba(25, 118, 210, 0.08) 0%, rgba(66, 165, 245, 0.04) 100%);
+    border: 1px solid rgba(25, 118, 210, 0.2);
     border-radius: var(--radius-xl);
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-xs);
@@ -942,11 +944,11 @@ body {
 .prazo-restante {
     font-size: var(--font-size-base);
     font-weight: 800;
-    color: #1976D2;
-    background: linear-gradient(135deg, rgba(33, 150, 243, 0.15) 0%, rgba(30, 136, 229, 0.08) 100%);
+    color: var(--accent-color);
+    background: linear-gradient(135deg, rgba(25, 118, 210, 0.15) 0%, rgba(66, 165, 245, 0.08) 100%);
     padding: var(--space-sm) var(--space-md);
     border-radius: var(--radius-full);
-    border: 1px solid rgba(33, 150, 243, 0.3);
+    border: 1px solid rgba(25, 118, 210, 0.3);
     box-shadow: var(--shadow-xs);
     backdrop-filter: blur(5px);
     font-family: var(--font-family-display);
@@ -960,7 +962,7 @@ body {
 }
 
 /* ========================================= */
-/* AÇÕES DO CARD - MOBILE COMPACTO */
+/* AÇÕES DO CARD - PALETA PROFISSIONAL */
 /* ========================================= */
 
 .card-actions {
@@ -1012,7 +1014,7 @@ body {
 
 .peneira-card:nth-child(even) .btn-primary {
     background: var(--gradient-secondary);
-    box-shadow: var(--shadow-orange);
+    box-shadow: var(--shadow-blue);
 }
 
 .btn-primary:hover {
@@ -1022,8 +1024,8 @@ body {
 }
 
 .peneira-card:nth-child(even) .btn-primary:hover {
-    background: linear-gradient(135deg, var(--secondary-light) 0%, var(--accent-color) 100%);
-    box-shadow: var(--shadow-orange);
+    background: linear-gradient(135deg, var(--secondary-light) 0%, var(--secondary-lighter) 100%);
+    box-shadow: var(--shadow-blue);
 }
 
 .btn-primary:active {
@@ -1390,7 +1392,7 @@ body {
 }
 
 .peneira-card:nth-child(even):focus-within {
-    outline-color: rgba(255, 107, 53, 0.3);
+    outline-color: rgba(55, 71, 79, 0.3);
 }
 
 /* Micro-interações premium */
